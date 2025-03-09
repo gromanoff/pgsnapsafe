@@ -1,5 +1,12 @@
 # 🚀 PgSnapSafe
+
+![GitHub stars](https://img.shields.io/github/stars/gromanoff/pgsnapsafe?style=social)
+![GitHub forks](https://img.shields.io/github/forks/gromanoff/pgsnapsafe?style=social)
+![GitHub license](https://img.shields.io/github/license/gromanoff/pgsnapsafe)
+![GitHub release](https://img.shields.io/github/v/release/gromanoff/pgsnapsafe)
+
 [English](README.md) | [Русский](README.ru.md)
+
 
 **PgSnapSafe** is an automated PostgreSQL backup service with S3 storage support and email notifications. It allows flexible scheduling of backups and efficient management of stored copies via a simple `.yml` configuration file.
 

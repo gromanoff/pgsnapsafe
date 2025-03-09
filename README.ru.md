@@ -1,6 +1,11 @@
 # 🚀 PgSnapSafe
 [English](README.md) | Русский
 
+![GitHub stars](https://img.shields.io/github/stars/gromanoff/pgsnapsafe?style=social)
+![GitHub forks](https://img.shields.io/github/forks/gromanoff/pgsnapsafe?style=social)
+![GitHub license](https://img.shields.io/github/license/gromanoff/pgsnapsafe)
+![GitHub release](https://img.shields.io/github/v/release/gromanoff/pgsnapsafe)
+
 **PgSnapSafe** – это автоматизированный сервис резервного копирования PostgreSQL с возможностью загрузки бэкапов в S3 и уведомлениями по email. Позволяет удобно настраивать расписание бэкапов и управлять хранимыми копиями через конфигурационный файл `.yml`.
 
 ## 📌 Возможности
