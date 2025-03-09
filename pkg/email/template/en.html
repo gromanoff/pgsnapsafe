@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backup Successfully Created</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
+
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f4f4f4; padding: 20px 0;">
+    <tr>
+        <td align="center">
+            <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="background: #ffffff; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+                <!-- Header -->
+                <tr>
+                    <td align="center" style="background: #4CAF50; padding: 15px; color: #fff; font-size: 20px; font-weight: bold; border-radius: 10px 10px 0 0;">
+                        ✅ Backup Successfully Created
+                    </td>
+                </tr>
+
+                <!-- Content -->
+                <tr>
+                    <td style="padding: 20px; font-size: 16px; color: #333; line-height: 1.6;">
+                        <p>Hello!</p>
+                        <p>We are pleased to inform you that the database backup has been successfully completed.</p>
+
+                        <table role="presentation" width="100%" cellspacing="0" cellpadding="10" border="0" style="background: #f9f9f9; border-left: 4px solid #4CAF50; margin-top: 20px;">
+                            <tr>
+                                <td><strong>File Name:</strong> {{ .FileName }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Date & Time:</strong> {{ .Timestamp }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <!-- Footer -->
+                <tr>
+                    <td align="center" style="font-size: 12px; color: #777; padding: 15px; border-top: 1px solid #ddd;">
+                        This is an automated notification, please do not reply to this email.<br>
+                        <strong>Your Company Name</strong> © 2025
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

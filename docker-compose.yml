@@ -1,0 +1,25 @@
+services:
+  pgsnapsafe:
+    # Build configuration for the custom PostgreSQL backup container
+    build:
+      context: .  # Specifies the build context (current directory)
+      args:
+        POSTGRES_VERSION: 15  # Specifies the PostgreSQL client version to be installed inside the container
+
+    container_name: pgsnapsafe_container  # Custom name for the container to make it easier to reference
+
+    volumes:
+      # Mounts the configuration file inside the container (read-only)
+      - ./config.yml:/app/config.yml:ro
+
+      # Mounts the .env file inside the container to provide environment variables (read-only)
+      - ./.env:/app/.env:ro
+
+      # Mounts a local directory for storing database backups inside the container
+      - ./backups:/app/db_backups
+
+    environment:
+      # Sets the environment variable inside the container to define the backup storage path
+      - BACKUP_PATH=/app/db_backups
+
+    restart: always  # Ensures the container restarts automatically in case of failure
