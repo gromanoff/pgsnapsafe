@@ -1,22 +1,23 @@
 # Backup configuration settings
 backup:
   times:
-    - "19:01"  # Scheduled backup time in HH:MM format (24-hour format)
-    - "17:21"  # You can specify multiple backup times per day
-    - "17:22"
+    - "08:00" # Scheduled backup time in HH:MM format (24-hour format)
+    - "12:00"
+    - "18:00"  # You can specify multiple backup times per day
+    - "00:00"
   keep_copies: 3  # Number of backup copies to keep (older backups will be deleted)
 
 # System health check settings
 health_check: true  # If true, performs a health check on startup to verify PostgreSQL, S3, and backup creation
 
 # S3 storage settings
-s3: false  # If true, backups will be uploaded to S3 storage; if false, only local backups will be created
+s3: true  # If true, backups will be uploaded to S3 storage; if false, only local backups will be created
 
 # SMTP email notifications
-smtp: false  # If true, enables email notifications for successful backup creation
+smtp: true  # If true, enables email notifications for successful backup creation
 
 # Email delivery settings
-email_delivery: yoremail@example.com  # Email address to receive backup notifications
+email_delivery: g.romanoff.biz@gmail.com  # Email address to receive backup notifications
 
 # Email language settings
-email_lang: en  # Language for email notifications (e.g., 'en' for English, 'ru' for Russian)
+email_lang: ru  # Language for email notifications (e.g., 'en' for English, 'ru' for Russian)
