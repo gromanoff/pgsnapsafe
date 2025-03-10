@@ -17,7 +17,10 @@ RUN go build -o pgsnapsafe cmd/app/main.go
 FROM debian:bookworm-slim
 
 ARG POSTGRES_VERSION=15
-RUN apt-get update && apt-get install -y postgresql-client-${POSTGRES_VERSION} && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    postgresql-client-${POSTGRES_VERSION} \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
