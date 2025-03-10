@@ -132,15 +132,15 @@ func initSMTPClient() *email.SMTPClient {
 }
 
 func loadConfigBackup() *BackupConfig {
-	v.SetConfigFile("config.yml")
+	v.SetConfigFile("config-example.yml")
 	err := v.ReadInConfig()
 	if err != nil {
-		log.Fatalf("❌ Error reading config.yml: %v", err)
+		log.Fatalf("❌ Error reading config-example.yml: %v", err)
 	}
 
 	backupCfg := v.Sub("backup")
 	if backupCfg == nil {
-		log.Fatalf("❌ Error: 'backup' section not found in config.yml")
+		log.Fatalf("❌ Error: 'backup' section not found in config-example.yml")
 	}
 
 	var cfg BackupConfig

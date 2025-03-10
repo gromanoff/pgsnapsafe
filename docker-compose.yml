@@ -10,7 +10,7 @@ services:
 
     volumes:
       # Mounts the configuration file inside the container (read-only)
-      - ./config.yml:/app/config.yml:ro
+      - ./config-example.yml:/app/config-example.yml:ro
 
       # Mounts the .env file inside the container to provide environment variables (read-only)
       - ./.env:/app/.env:ro

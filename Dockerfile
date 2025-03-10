@@ -24,7 +24,7 @@ COPY --from=builder /app/pgsnapsafe /usr/local/bin/pgsnapsafe
 
 COPY /pkg/email/template /app
 
-COPY config.yml .env /app/
+COPY config-example.yml .env /app/
 
 RUN chmod +x /usr/local/bin/pgsnapsafe
 
