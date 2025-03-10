@@ -22,7 +22,7 @@ WORKDIR /app
 
 COPY --from=builder /app/pgsnapsafe /usr/local/bin/pgsnapsafe
 
-COPY /pkg/email/template /app
+COPY /pkg/email/template /app/pkg/email/template
 
 COPY config-example.yml .env /app/
 
