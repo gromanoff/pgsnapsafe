@@ -12,6 +12,8 @@ func Run(cfg *config.Config) {
 	cfg.Log.Info("🔄 Starting backup cycle...")
 	cfg.Log.Info("📋 Backup schedule", "times", cfg.Backup.Times)
 
+	lastRun := make(map[string]time.Time) // Храним последнее время выполнения бэкапа
+
 	for {
 		now := time.Now()
 
@@ -25,6 +27,13 @@ func Run(cfg *config.Config) {
 			backupTime := time.Date(now.Year(), now.Month(), now.Day(),
 				backupTimeParsed.Hour(), backupTimeParsed.Minute(), 0, 0, now.Location())
 
+			// Проверяем, запускался ли уже бэкап сегодня
+			if lastRunTime, exists := lastRun[t]; exists {
+				if lastRunTime.Day() == now.Day() {
+					continue // Бэкап уже запускался сегодня, пропускаем
+				}
+			}
+
 			if abs(now.Sub(backupTime).Seconds()) < 30 {
 				cfg.Log.Info("🕒 Backup time!", "time", t)
 
@@ -33,6 +42,7 @@ func Run(cfg *config.Config) {
 					cfg.Log.Error("❌ Error creating backup", "error", err)
 				} else {
 					cfg.Log.Info("✅ Backup created successfully", "file", filePath)
+					lastRun[t] = now // Запоминаем, что бэкап уже был выполнен
 				}
 
 				if err := backups.CleanupOldBackups(cfg); err != nil {
@@ -46,12 +56,10 @@ func Run(cfg *config.Config) {
 						cfg.Log.Error("Error sending email", "error", err)
 					}
 				}
-				time.Sleep(1 * time.Minute)
-
 			}
 		}
 
-		time.Sleep(30 * time.Second)
+		time.Sleep(60 * time.Second) // Проверяем каждую минуту
 	}
 }
 
