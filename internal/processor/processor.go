@@ -46,6 +46,7 @@ func Run(cfg *config.Config) {
 						cfg.Log.Error("Error sending email", "error", err)
 					}
 				}
+				time.Sleep(1 * time.Minute)
 
 			}
 		}
